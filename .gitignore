@@ -89,3 +89,7 @@ credentials.json
 *.key
 .credentials
 .expo/
+
+# SQLite databases
+*.db
+*.db-journal
