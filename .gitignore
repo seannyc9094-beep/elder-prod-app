@@ -88,8 +88,3 @@ credentials.json
 *.pem
 *.key
 .credentials
-.expo/
-
-# SQLite databases
-*.db
-*.db-journal
