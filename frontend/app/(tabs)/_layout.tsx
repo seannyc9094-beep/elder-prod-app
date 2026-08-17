@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Platform } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 
-function TabBarIcon({ name, color }: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
+function TabBarIcon({ name, color }: { name: React.ComponentProps<typeof Ionicons>['name']; color: any }) {
   return <Ionicons name={name} size={28} color={color} />;
 }
 
