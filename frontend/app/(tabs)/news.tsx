@@ -14,6 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { format } from 'date-fns';
 import { useTheme } from '../../context/ThemeContext';
+import API from '../../utils/api';
 
 interface NewsItem {
   title: string;
@@ -23,8 +24,6 @@ interface NewsItem {
   description?: string;
   source: string;
 }
-
-const API = `${process.env.EXPO_PUBLIC_BACKEND_URL}/api`;
 
 const NEWS_SOURCES = [
   { name: 'CBC News', icon: 'globe' },

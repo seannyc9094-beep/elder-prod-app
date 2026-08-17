@@ -19,8 +19,7 @@ import {
 } from 'expo-audio';
 import { useTheme } from '../context/ThemeContext';
 import { useFontSize } from '../context/FontSizeContext';
-
-const API = `${process.env.EXPO_PUBLIC_BACKEND_URL}/api`;
+import API from '../utils/api';
 const RED = '#D32F2F';
 
 interface DictationButtonProps {

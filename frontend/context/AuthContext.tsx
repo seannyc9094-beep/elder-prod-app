@@ -1,8 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Platform } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
-
-const API = `${process.env.EXPO_PUBLIC_BACKEND_URL}/api`;
+import API from '../utils/api';
 const TOKEN_KEY = 'auth_token';
 
 async function getStoredToken(): Promise<string | null> {

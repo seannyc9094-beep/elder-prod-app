@@ -15,7 +15,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../context/ThemeContext';
 import { useFontSize } from '../../context/FontSizeContext';
-import Constants from 'expo-constants';
+import API from '../../utils/api';
 
 interface Message {
   id: string;
@@ -30,10 +30,6 @@ interface ChatSession {
   created_at: string;
   updated_at: string;
 }
-
-const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 
-                process.env.EXPO_PUBLIC_BACKEND_URL || 
-                'https://easy-productivity-1.preview.emergentagent.com';
 
 export default function Chat() {
   const { theme } = useTheme();
@@ -58,7 +54,7 @@ export default function Chat() {
 
   const loadSessions = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/chat/sessions`);
+      const response = await fetch(`${API}/chat/sessions`);
       const data = await response.json();
       setSessions(data);
       if (data.length > 0 && !currentSession) {
@@ -71,7 +67,7 @@ export default function Chat() {
 
   const loadMessages = async (sessionId: string) => {
     try {
-      const response = await fetch(`${API_URL}/api/chat/sessions/${sessionId}/messages`);
+      const response = await fetch(`${API}/chat/sessions/${sessionId}/messages`);
       const data = await response.json();
       setMessages(data);
       setTimeout(() => scrollViewRef.current?.scrollToEnd({ animated: true }), 100);
@@ -82,7 +78,7 @@ export default function Chat() {
 
   const createNewSession = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/chat/sessions`, {
+      const response = await fetch(`${API}/chat/sessions`, {
         method: 'POST',
       });
       const data = await response.json();
@@ -106,7 +102,7 @@ export default function Chat() {
           style: 'destructive',
           onPress: async () => {
             try {
-              await fetch(`${API_URL}/api/chat/sessions/${sessionId}`, {
+              await fetch(`${API}/chat/sessions/${sessionId}`, {
                 method: 'DELETE',
               });
               const newSessions = sessions.filter(s => s.id !== sessionId);
@@ -132,7 +128,7 @@ export default function Chat() {
     // Create a new session if none exists
     if (!sessionId) {
       try {
-        const response = await fetch(`${API_URL}/api/chat/sessions`, {
+        const response = await fetch(`${API}/chat/sessions`, {
           method: 'POST',
         });
         const data = await response.json();
@@ -159,7 +155,7 @@ export default function Chat() {
     setTimeout(() => scrollViewRef.current?.scrollToEnd({ animated: true }), 100);
 
     try {
-      const response = await fetch(`${API_URL}/api/chat/send`, {
+      const response = await fetch(`${API}/chat/send`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

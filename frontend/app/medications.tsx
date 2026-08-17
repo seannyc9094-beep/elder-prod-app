@@ -19,8 +19,7 @@ import { format } from 'date-fns';
 import { useTheme } from '../context/ThemeContext';
 import { useFontSize } from '../context/FontSizeContext';
 import { getDeviceId } from '../utils/deviceId';
-
-const API = `${process.env.EXPO_PUBLIC_BACKEND_URL}/api`;
+import API from '../utils/api';
 
 interface Medication {
   id: string;

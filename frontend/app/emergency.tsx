@@ -23,8 +23,7 @@ import * as Location from 'expo-location';
 import { useTheme } from '../context/ThemeContext';
 import { useFontSize } from '../context/FontSizeContext';
 import { getDeviceId } from '../utils/deviceId';
-
-const API = `${process.env.EXPO_PUBLIC_BACKEND_URL}/api`;
+import API from '../utils/api';
 const HOLD_DURATION_MS = 3000;
 
 interface EmergencyContact {
