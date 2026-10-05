@@ -65,3 +65,11 @@ Thumbs.db
 # Emergent / Sandbox temporary tooling
 .emergent/
 .gitconfig
+
+# Stray local files
+/package.json
+/package-lock.json
+/pnpm-lock.yaml
+package.json.save
+Untitled
+.mimosa/
