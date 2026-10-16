@@ -121,9 +121,9 @@ elder-prod-app/
 
 5. **Run the backend server**:
    ```bash
-   uvicorn server:app --reload --host 0.0.0.0 --port 8000
+   uvicorn server:app --reload --host 0.0.0.0 --port 3000
    ```
-   * Interactive API documentation will be available at: `http://localhost:8000/docs`
+   * Interactive API documentation will be available at: `http://localhost:3000/docs`
 
 ---
 
@@ -142,7 +142,7 @@ elder-prod-app/
 3. **Configure environment variables**:
    Create a `.env` file in the `frontend/` directory (or copy from `.env.example`):
    ```ini
-   EXPO_PUBLIC_BACKEND_URL=http://localhost:8000
+   EXPO_PUBLIC_BACKEND_URL=http://localhost:3000
    ```
 
 4. **Start the Expo development server**:
